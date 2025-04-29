@@ -1,17 +1,46 @@
 ﻿using RSAGenerator.Console;
 using System.Text;
 
-RSAKeyGenerator.Init();
+string _continue = "no";
 
-string textToEncrypt = "Hello, RSA!";
-byte[] dataToEncrypt = Encoding.UTF8.GetBytes(textToEncrypt);
+do
+{
 
-byte[] encryptedData = Helper.Ecrypt(dataToEncrypt);
-byte[] decryptedData = Helper.Decrypt(encryptedData);
+    RSAKeyGenerator.Init();
 
-string decryptedText = Encoding.UTF8.GetString(decryptedData);
-Console.WriteLine("Encrypted: {0}", BitConverter.ToString(encryptedData));
-Console.WriteLine("Original: {0}", textToEncrypt);
-Console.WriteLine("Decrypted: {0}", decryptedText);
+    Console.WriteLine("Enter value:");
+    string val = Console.ReadLine()!;
 
-Console.ReadKey();
+    string textToEncrypt = val;
+    byte[] dataToEncrypt = Encoding.UTF8.GetBytes(textToEncrypt);
+
+    byte[] encryptedData = Helper.Ecrypt(dataToEncrypt);
+    byte[] decryptedData = Helper.Decrypt(encryptedData);
+
+    string decryptedText = Encoding.UTF8.GetString(decryptedData);
+
+    Console.WriteLine("-----------");
+    Console.WriteLine("Encrypted: {0}", BitConverter.ToString(encryptedData));
+    Console.WriteLine("-----------");
+    Console.WriteLine("Original: {0}", textToEncrypt);
+    Console.WriteLine("-----------");
+    Console.WriteLine("Decrypted: {0}", decryptedText);
+    Console.WriteLine("-----------");
+    Console.WriteLine("Rotate keys ? yes/no");
+    string rotate = Console.ReadLine()!;
+
+    if(rotate == "yes" || rotate == "Yes")
+    {
+        RSAKeyGenerator.Init();
+
+        Console.WriteLine("-----------");
+
+        Console.WriteLine("Keys are rotated");
+    }
+
+    Console.WriteLine("-----------");
+
+    Console.WriteLine("Continue ? yes/no");
+    _continue = Console.ReadLine()!;
+
+} while (_continue == "yes" || _continue == "Yes");
