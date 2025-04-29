@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 
 namespace RSAGenerator.Console
 {
@@ -7,7 +6,7 @@ namespace RSAGenerator.Console
     {
         public static byte[] Decrypt(byte[] data)
         {
-            byte[] privateKey = File.ReadAllBytes("prKey.pem");
+            byte[] privateKey = File.ReadAllBytes(RSAKeyGeneratorHelpers.PkConst);
 
             using RSA rsa = RSA.Create();
 
@@ -18,7 +17,7 @@ namespace RSAGenerator.Console
 
         public static byte[] Ecrypt(byte[] data)
         {
-            byte[] pKey = File.ReadAllBytes("pK.pem");
+            byte[] pKey = File.ReadAllBytes(RSAKeyGeneratorHelpers.PConst);
 
             using RSA rsa = RSA.Create();
 

@@ -6,16 +6,16 @@ public class RSAKeyGenerator
     {
         try
         {
-            using RSA rsa = RSA.Create(3072);
+            using RSA rsa = RSA.Create(1024);
             byte[] publicKey = rsa.ExportRSAPublicKey();
             byte[] privateKey = rsa.ExportRSAPrivateKey();
 
-            SaveKeyToFile("private_key.pem", privateKey);
-            SaveKeyToFile("public_key.pem", publicKey);
+            SaveKeyToFile(RSAKeyGeneratorHelpers.PkConst, privateKey);
+            SaveKeyToFile(RSAKeyGeneratorHelpers.PConst, publicKey);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            Console.WriteLine("An error occurred: {0}", ex.Message);
         }
     }
 
@@ -28,8 +28,7 @@ public class RSAKeyGenerator
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Failed to save {fileName}: {ex.Message}");
+            Console.WriteLine("Failed to save {0}: {1}", fileName, ex.Message);
         }
     }
 }
-

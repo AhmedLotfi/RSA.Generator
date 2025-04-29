@@ -10,5 +10,8 @@ byte[] encryptedData = Helper.Ecrypt(dataToEncrypt);
 byte[] decryptedData = Helper.Decrypt(encryptedData);
 
 string decryptedText = Encoding.UTF8.GetString(decryptedData);
+Console.WriteLine("Encrypted: {0}", BitConverter.ToString(encryptedData));
 Console.WriteLine("Original: {0}", textToEncrypt);
 Console.WriteLine("Decrypted: {0}", decryptedText);
+
+Console.ReadKey();
