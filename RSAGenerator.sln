@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA.Generator.Console", "RSA.Generator.Console\RSA.Generator.Console.csproj", "{C394FEB8-6140-4249-87A2-11FC971F7358}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSAGenerator.Console", "RSA.Generator.Console\RSAGenerator.Console.csproj", "{C394FEB8-6140-4249-87A2-11FC971F7358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
