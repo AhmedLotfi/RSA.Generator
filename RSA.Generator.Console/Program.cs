@@ -1,13 +1,14 @@
-﻿using System.Security.Cryptography;
+﻿using RSAGenerator.Console;
+using System.Text;
 
-using RSA rsa = RSA.Create(2048);
-byte[] publicKey = rsa.ExportRSAPublicKey();
-byte[] privateKey = rsa.ExportRSAPrivateKey(); 
+RSAKeyGenerator.Init();
 
+string textToEncrypt = "Hello, RSA!";
+byte[] dataToEncrypt = Encoding.UTF8.GetBytes(textToEncrypt);
 
-Console.WriteLine(publicKey.Length + privateKey.Length);
-Console.WriteLine("Public Key:{0}",publicKey);
-Console.WriteLine("Private Key:{0}", privateKey);
+byte[] encryptedData = Helper.Ecrypt(dataToEncrypt);
+byte[] decryptedData = Helper.Decrypt(encryptedData);
 
-File.WriteAllBytes("prKey.pem", privateKey);
-File.WriteAllBytes("pKey.pem", publicKey);
+string decryptedText = Encoding.UTF8.GetString(decryptedData);
+Console.WriteLine("Original: {0}", textToEncrypt);
+Console.WriteLine("Decrypted: {0}", decryptedText);

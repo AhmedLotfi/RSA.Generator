@@ -5,21 +5,18 @@ namespace RSAGenerator.Console
 {
     internal static class Helper
     {
-        public static string Decrypt(string val)
+        public static byte[] Decrypt(byte[] data)
         {
             byte[] privateKey = File.ReadAllBytes("prKey.pem");
 
             using RSA rsa = RSA.Create();
-            
+
             rsa.ImportRSAPrivateKey(privateKey, out _);
 
-            byte[] encryptedBytes = Convert.FromBase64String(val);
-            byte[] decryptedBytes = rsa.Decrypt(encryptedBytes, RSAEncryptionPadding.OaepSHA256);
-
-            return BitConverter.ToString(decryptedBytes);
+            return rsa.Decrypt(data, RSAEncryptionPadding.OaepSHA256);
         }
 
-        public static string Ecrypt(string val)
+        public static byte[] Ecrypt(byte[] data)
         {
             byte[] pKey = File.ReadAllBytes("pK.pem");
 
@@ -27,11 +24,7 @@ namespace RSAGenerator.Console
 
             rsa.ImportRSAPublicKey(pKey, out _);
 
-            byte[] byteArray = Encoding.UTF8.GetBytes(val);
-
-            byte[] enc = rsa.Encrypt(byteArray, RSAEncryptionPadding.OaepSHA256);
-
-            return BitConverter.ToString(byteArray);
+            return rsa.Encrypt(data, RSAEncryptionPadding.OaepSHA256);
         }
     }
 }

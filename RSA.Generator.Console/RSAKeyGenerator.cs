@@ -2,7 +2,7 @@
 
 public class RSAKeyGenerator
 {
-    public static void GenerateAndSaveKeys()
+    public static void Init()
     {
         try
         {
