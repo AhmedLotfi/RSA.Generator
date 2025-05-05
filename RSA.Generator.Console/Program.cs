@@ -6,7 +6,7 @@ string _continue = "no";
 do
 {
 
-    RSAKeyGenerator.Init();
+    //RSAKeyGenerator.Init();
 
     Console.WriteLine("Enter value:");
     string val = Console.ReadLine()!;
