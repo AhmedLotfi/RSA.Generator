@@ -1,5 +1,5 @@
 ﻿internal static class RSAKeyGeneratorHelpers
 {
-    public const string PkConst = "prKey.pem";
-    public const string PConst = "pKey.pem";
+    public const string PkConst = "ENOCHubECSPrivateKey.pem";
+    public const string PConst = "ENOCHubECSPublicKey.pem";
 }

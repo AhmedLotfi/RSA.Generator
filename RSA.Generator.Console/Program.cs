@@ -6,7 +6,7 @@ string _continue = "no";
 do
 {
 
-    RSAKeyGenerator.Init();
+    //RSAKeyGenerator.Init();
 
     Console.WriteLine("Enter value:");
     string val = Console.ReadLine()!;
@@ -20,7 +20,7 @@ do
     string decryptedText = Encoding.UTF8.GetString(decryptedData);
 
     Console.WriteLine("-----------");
-    Console.WriteLine("Encrypted: {0}", BitConverter.ToString(encryptedData));
+    Console.WriteLine("Encrypted 64: {0}", Convert.ToBase64String(encryptedData));
     Console.WriteLine("-----------");
     Console.WriteLine("Original: {0}", textToEncrypt);
     Console.WriteLine("-----------");

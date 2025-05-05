@@ -12,7 +12,7 @@ namespace RSAGenerator.Console
 
             rsa.ImportRSAPrivateKey(privateKey, out _);
 
-            return rsa.Decrypt(data, RSAEncryptionPadding.OaepSHA256);
+            return rsa.Decrypt(data, RSAEncryptionPadding.Pkcs1);
         }
 
         public static byte[] Ecrypt(byte[] data)
@@ -23,7 +23,7 @@ namespace RSAGenerator.Console
 
             rsa.ImportRSAPublicKey(pKey, out _);
 
-            return rsa.Encrypt(data, RSAEncryptionPadding.OaepSHA256);
+            return rsa.Encrypt(data, RSAEncryptionPadding.Pkcs1);
         }
     }
 }
