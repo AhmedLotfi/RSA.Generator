@@ -12,7 +12,11 @@ namespace RSAGenerator.Console
 
             rsa.ImportRSAPrivateKey(privateKey, out _);
 
-            return rsa.Decrypt(data, RSAEncryptionPadding.Pkcs1);
+
+            var x = "MHng/XQQWii00JyDZ1sbvIIMWyhbgtUcmXjUJC+AbbbBIC64JiiKPlScL0tySDtf2ab3VUJTO4g7JQSYY7cNaVK8uX9H+ybeVh5M48mCxyoHPxC3ZaxabjVMhc6moC8EBHH5q1TjJ0hSTaHZGlCYTUimozxXFgV1CjqScxmnEEw=";
+
+            return rsa.Decrypt(Convert.FromBase64String(x), RSAEncryptionPadding.Pkcs1);
+            //return rsa.Decrypt(data, RSAEncryptionPadding.Pkcs1);
         }
 
         public static byte[] Ecrypt(byte[] data)

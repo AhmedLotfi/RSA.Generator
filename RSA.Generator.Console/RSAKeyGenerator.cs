@@ -12,6 +12,9 @@ public class RSAKeyGenerator
 
             SaveKeyToFile(RSAKeyGeneratorHelpers.PkConst, privateKey);
             SaveKeyToFile(RSAKeyGeneratorHelpers.PConst, publicKey);
+
+            Console.WriteLine("Private Key:{0}",Convert.ToBase64String(privateKey));
+            Console.WriteLine("Public Key:{0}",Convert.ToBase64String(publicKey));
         }
         catch (Exception ex)
         {
